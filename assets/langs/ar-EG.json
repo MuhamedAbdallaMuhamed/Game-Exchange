@@ -1,0 +1,17 @@
+{
+    "----Login And SignUp----": "--------------",
+    "EMAIL_TEXT": "البريد الأكتروني",
+    "EMAIL_HINT_TEXT": "أدخل البريد الألكتروني",
+    "PASSWORD_TEXT": "كلمة المرور",
+    "PASSWORD_HINT_TEXT": "أدخل كلمة المرور",
+    "NAME_LABEL_TEXT": "الأسم",
+    "NAME_HINT_TEXT": "أدخل اسمك",
+    "FORGET_PASSWORD_TEXT": "هل نسيت كلمة المرور؟",
+    "REMEMBER_ME_TEXT": "تذكرني",
+    "LOGIN_TEXT": "تسجيل الدخول",
+    "OR_TEXT": "- أو -",
+    "SIGN_WITH_TEXT": "تسجيل الدخول بواسطة",
+    "DONOT_HAVE_ACCOUNT_TEXT": "لا تمتلك حساب؟ ",
+    "SIGN_UP_BUTTON_TEXT": "أنشاء حساب",
+    "SIGN_UP_TEXT": "حساب جديد"
+}
