@@ -1,0 +1,31 @@
+name: Dart CI
+
+on:
+  pull_request:
+    branches: [ master ]
+jobs:
+  build:
+    name: "${{ matrix.bot }} (${{ matrix.dart-version }}/${{ matrix.code-version }}/${{ matrix.os }})"
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+          os: [ubuntu-latest]
+          dart-version: [stable]
+          bot: [flutter, dart] #bot: [flutter_debug, flutter_debug_chrome, flutter_test_debug, dart_web_debug, flutter_repo, dart_debug, dart, flutter, misc]
+          include:
+            - dart-version: stable
+              flutter-version: stable
+              code-version: stable
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-java@v1
+      with:
+        java-version: '12.x'
+    - uses: subosito/flutter-action@v1
+      with:
+        channel: stable
+    - run: flutter pub get
+    - run: flutter analyze
+    - run: flutter build apk
+    - run: flutter test

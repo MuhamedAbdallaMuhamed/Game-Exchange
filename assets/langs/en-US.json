@@ -1,0 +1,17 @@
+{
+    "----Login And SignUp----": "--------------",
+    "EMAIL_TEXT": "Email",
+    "EMAIL_HINT_TEXT": "Enter your Email",
+    "PASSWORD_TEXT": "Password",
+    "PASSWORD_HINT_TEXT": "Enter your Password",
+    "NAME_LABEL_TEXT": "Name",
+    "NAME_HINT_TEXT": "Enter your Name",
+    "FORGET_PASSWORD_TEXT": "Forgot Password?",
+    "REMEMBER_ME_TEXT": "Remember me",
+    "LOGIN_TEXT": "Login",
+    "OR_TEXT": "- OR -",
+    "SIGN_WITH_TEXT": "Sign in with",
+    "DONOT_HAVE_ACCOUNT_TEXT": "Don't have an Account? ",
+    "SIGN_UP_BUTTON_TEXT": "Sign Up",
+    "SIGN_UP_TEXT": "Sign Up"
+}
