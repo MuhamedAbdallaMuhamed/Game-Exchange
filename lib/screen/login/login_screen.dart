@@ -19,7 +19,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  bool _rememberMe = false;
   final _emailControler = TextEditingController();
   final _passwordControler = TextEditingController();
   final UserManager _userManager = container<UserManager>();
@@ -38,7 +37,6 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   void initState() {
     super.initState();
-    _rememberMe = false;
   }
 
   @override
