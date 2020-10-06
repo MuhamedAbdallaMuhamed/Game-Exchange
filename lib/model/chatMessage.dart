@@ -7,6 +7,7 @@ class ChatMessages extends DataModel {
   String senderID;
   String pathID;
   String receiverID;
+  String chatID;
 
   ChatMessages(
     String id, {
@@ -15,6 +16,7 @@ class ChatMessages extends DataModel {
     this.senderID,
     this.receiverID,
     this.message,
+    this.chatID,
   }) {
     this.id = id;
   }
@@ -23,6 +25,7 @@ class ChatMessages extends DataModel {
         this.id,
         this.senderID,
         this.pathID,
+        this.chatID,
         this.date,
         this.message,
         this.receiverID,

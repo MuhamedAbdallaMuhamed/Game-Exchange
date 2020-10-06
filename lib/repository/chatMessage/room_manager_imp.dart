@@ -48,7 +48,7 @@ class IRoomManager implements RoomManager {
         path: [
           GameConstants.CHAT_MESSAGE_COLLECTION_ENTRY,
           (model as ChatMessages).pathID,
-          GameConstants.CHAT_MESSAGE_PATH_ENTRY,
+          GameConstants.CHAT_MESSAGE_PATH_COLLECTION_ENTRY,
           model.id,
         ],
         model: toJson(model),
@@ -63,7 +63,7 @@ class IRoomManager implements RoomManager {
         path: [
           GameConstants.CHAT_MESSAGE_COLLECTION_ENTRY,
           (model as ChatMessages).pathID,
-          GameConstants.CHAT_MESSAGE_PATH_ENTRY,
+          GameConstants.CHAT_MESSAGE_PATH_COLLECTION_ENTRY,
           model.id,
         ],
       ),
@@ -100,7 +100,7 @@ class IRoomManager implements RoomManager {
             value: [
               GameConstants.CHAT_MESSAGE_COLLECTION_ENTRY,
               roomID,
-              GameConstants.CHAT_MESSAGE_PATH_ENTRY,
+              GameConstants.CHAT_MESSAGE_PATH_COLLECTION_ENTRY,
               currentDocID,
             ],
           ),
@@ -116,7 +116,11 @@ class IRoomManager implements RoomManager {
           new List<Map<String, dynamic>>();
       messageAsJson = await _firebaseOperation.getWithConditions(
         QueryManager(
-          path: [GameConstants.CHAT_MESSAGE_COLLECTION_ENTRY],
+          path: [
+            GameConstants.CHAT_MESSAGE_COLLECTION_ENTRY,
+            roomID,
+            GameConstants.CHAT_MESSAGE_PATH_COLLECTION_ENTRY,
+          ],
           conditions: condition,
         ),
       );
@@ -147,6 +151,7 @@ class IRoomManager implements RoomManager {
     json[GameConstants.CHAT_MESSAGE_TIME_ENTRY] = currentChat.date;
     json[GameConstants.CHAT_MESSAGE_SENDER_ID_ENTRY] = currentChat.senderID;
     json[GameConstants.CHAT_MESSAGE_RECEIVER_ID_ENTRY] = currentChat.receiverID;
+    json[GameConstants.CHAT_MESSAGE_ROOM_ID] = currentChat.chatID;
     return json;
   }
 
@@ -160,6 +165,7 @@ class IRoomManager implements RoomManager {
       date: json[GameConstants.CHAT_MESSAGE_TIME_ENTRY],
       senderID: json[GameConstants.CHAT_MESSAGE_SENDER_ID_ENTRY],
       receiverID: json[GameConstants.CHAT_MESSAGE_RECEIVER_ID_ENTRY],
+      chatID: json[GameConstants.CHAT_MESSAGE_ROOM_ID],
     );
     return databaseModel;
   }

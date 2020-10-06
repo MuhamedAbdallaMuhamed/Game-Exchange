@@ -1,6 +1,7 @@
 import 'package:GM_Nav/bloc/message/message_state.dart';
 import 'package:GM_Nav/config/dependency_injection.dart';
 import 'package:GM_Nav/model/DataModel.dart';
+import 'package:GM_Nav/model/chatRoom.dart';
 import 'package:GM_Nav/repository/chatMessage/room_manager.dart';
 import 'package:bloc/bloc.dart';
 import 'message_event.dart';
@@ -29,7 +30,7 @@ class MessageBloc extends Bloc<MessageEvent, MessageState> {
             _messages.clear();
           } else {
             List<DataModel> messages = await _messageManager.getMessages(
-              event.chatRoom.id,
+              (event.chatRoom as ChatRoom).messagesID,
             );
             _merge(messages);
             yield MessageLoaded(

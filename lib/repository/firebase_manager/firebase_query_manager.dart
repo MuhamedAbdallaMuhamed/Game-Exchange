@@ -98,7 +98,8 @@ class IFirebaseOperation implements FirebaseOperation {
 
     var currentCollection = firestore.collection(path[0]);
     for (int i = 1; i + 1 < path.length; i += 2) {
-      currentCollection.document(path[i]).collection(path[i + 1]);
+      currentCollection =
+          currentCollection.document(path[i]).collection(path[i + 1]);
     }
 
     return currentCollection;

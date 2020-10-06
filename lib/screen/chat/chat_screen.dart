@@ -5,8 +5,10 @@ import 'package:GM_Nav/bloc/message/message_event.dart';
 import 'package:GM_Nav/bloc/message/message_state.dart';
 import 'package:GM_Nav/config/dependency_injection.dart';
 import 'package:GM_Nav/config/design_constants.dart';
+import 'package:GM_Nav/model/DataModel.dart';
 import 'package:GM_Nav/model/chatMessage.dart';
 import 'package:GM_Nav/model/chatRoom.dart';
+import 'package:GM_Nav/repository/chatMessage/chat_message_manager.dart';
 import 'package:GM_Nav/repository/chatMessage/room_manager.dart';
 import 'package:GM_Nav/repository/server/server_manager.dart';
 import 'package:GM_Nav/screen/splash/splash_screen.dart';
@@ -297,6 +299,12 @@ class _ChatPageViewState extends State<ChatPageView> {
                                                 as AuthenticationAuthenticated)
                                             .id;
                                     Timestamp timeSend = new Timestamp.now();
+                                    DataModel receriverChatRoom =
+                                        await container<ChatMessageManager>()
+                                            .getLastMessage(
+                                      widget.chatRoom.secondID,
+                                      storedID,
+                                    );
                                     ChatMessages message = new ChatMessages(
                                       uuid.v1(),
                                       senderID: storedID,
@@ -304,6 +312,8 @@ class _ChatPageViewState extends State<ChatPageView> {
                                       date: timeSend,
                                       pathID: widget.chatRoom.messagesID,
                                       receiverID: widget.chatRoom.secondID,
+                                      chatID:
+                                          (receriverChatRoom as ChatRoom).id,
                                     );
                                     await _messageManager.insert(message);
                                     model.sendMessage(message);

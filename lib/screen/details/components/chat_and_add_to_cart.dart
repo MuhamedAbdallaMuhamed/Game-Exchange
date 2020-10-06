@@ -78,6 +78,7 @@ class ChatAndAddToCart extends StatelessWidget {
                   pathID: messageID,
                   senderID: "",
                   receiverID: "",
+                  chatID: chatRoom.id,
                 );
                 ChatRoom rchatRoom = new ChatRoom(
                   uuid.v1(),

@@ -59,6 +59,7 @@ abstract class GameConstants {
   static const CHAT_MESSAGE_TIME_ENTRY = "Time";
   static const CHAT_MESSAGE_SENDER_ID_ENTRY = "SenderID";
   static const CHAT_MESSAGE_RECEIVER_ID_ENTRY = "ReceiverID";
+  static const CHAT_MESSAGE_ROOM_ID = "RoomID";
   //-------------------------------------Routes-----------------------------------------------//
   static const SIGNUP_PAGE_ROUTE = "/signup";
   static const LOGIN_PAGE_ROUTE = "/login";

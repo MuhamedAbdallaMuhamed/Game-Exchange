@@ -50,7 +50,10 @@ class ServerModel extends Model {
   }
 
   List<ChatMessages> getMessagesForChatID(String chatID) {
-    List<ChatMessages> retMessages = messages;
+    List<ChatMessages> retMessages = new List<ChatMessages>();
+    for (int i = 0; i < messages.length; i++) {
+      retMessages.add(messages[i]);
+    }
     messages.clear();
     return retMessages.toList();
   }
@@ -69,6 +72,7 @@ class ServerModel extends Model {
         currentChat.date.toDate().millisecondsSinceEpoch.toString();
     json[GameConstants.CHAT_MESSAGE_SENDER_ID_ENTRY] = currentChat.senderID;
     json[GameConstants.CHAT_MESSAGE_RECEIVER_ID_ENTRY] = currentChat.receiverID;
+    json[GameConstants.CHAT_MESSAGE_ROOM_ID] = currentChat.chatID;
     return json;
   }
 
@@ -85,6 +89,7 @@ class ServerModel extends Model {
       ),
       senderID: json[GameConstants.CHAT_MESSAGE_SENDER_ID_ENTRY],
       receiverID: json[GameConstants.CHAT_MESSAGE_RECEIVER_ID_ENTRY],
+      chatID: json[GameConstants.CHAT_MESSAGE_ROOM_ID],
     );
     return databaseModel;
   }
